@@ -40,25 +40,17 @@ public class Human {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter first name for Human 1: ");
-        String firstName1 = scanner.next();
-        System.out.print("Enter last name for Human 1: ");
-        String lastName1 = scanner.next();
-        Human human1 = new Human(firstName1, lastName1);
+        System.out.print("Enter first name for Human");
+        String firstName = scanner.next();
+        System.out.print("Enter last name for Human");
+        String lastName = scanner.next();
+        Human human = new Human(firstName, lastName);
 
-        System.out.print("Enter full name for Human 2: ");
-        scanner.nextLine();
-        String fullName2 = scanner.nextLine();
-        Human human2 = new Human(fullName2);
 
-        Human human3 = new Human();
+        System.out.println(human);
 
-        System.out.println(human1);
-        System.out.println(human2);
-        System.out.println(human3);
-
-        System.out.println("Full name of Human 1: " + human1.getFullName());
-        human2.printGreeting();
+        System.out.println("Full name of Human" + human.getFullName());
+        human.printGreeting();
 
         scanner.close();
     }

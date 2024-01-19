@@ -5,18 +5,25 @@ public class Phone {
     private final String model;
     private final double weight;
 
+    private static int instanceCount;
+
+    static {
+        instanceCount = 0;
+    }
+
     public Phone(String number, String model, double weight) {
         this.number = number;
         this.model = model;
         this.weight = weight;
+        instanceCount++;
     }
 
     public Phone(String number, String model) {
         this.number = number;
         this.model = model;
         this.weight = 0.0;
+        instanceCount++;
     }
-
     public boolean equalsIgnoreCase(String otherNumber) {
         return this.number.equalsIgnoreCase(otherNumber);
     }
@@ -28,31 +35,22 @@ public class Phone {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter phone number for Phone 1: ");
+        System.out.print("Enter phone number for Phone");
         String number1 = scanner.next();
-        System.out.print("Enter model for Phone 1: ");
+        System.out.print("Enter model for Phone");
         String model1 = scanner.next();
-        System.out.print("Enter weight for Phone 1: ");
+        System.out.print("Enter weight for Phone");
         double weight1 = scanner.nextDouble();
         Phone phone1 = new Phone(number1, model1, weight1);
 
-        System.out.print("Enter phone number for Phone 2: ");
-        String number2 = scanner.next();
-        System.out.print("Enter model for Phone 2: ");
-        String model2 = scanner.next();
-        Phone phone2 = new Phone(number2, model2);
+        double minResult = Math.min(10, 5);
+        System.out.println("Result of Math.min(10, 5): " + minResult);
 
-        System.out.print("Enter phone number for Phone 3: ");
-        String number3 = scanner.next();
-        System.out.print("Enter model for Phone 3: ");
-        String model3 = scanner.next();
-        System.out.print("Enter weight for Phone 3: ");
-        double weight3 = scanner.nextDouble();
-        Phone phone3 = new Phone(number3, model3, weight3);
+        System.out.println("Total instances created: " + instanceCount);
 
         System.out.println(phone1);
-        System.out.println(phone2);
-        System.out.println(phone3);
+
+        System.out.println("Total instances created: " + instanceCount);
 
         System.out.print("Enter a phone number to compare with Phone 1: ");
         String compareNumber = scanner.next();
